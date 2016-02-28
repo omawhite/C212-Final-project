@@ -1,0 +1,68 @@
+We will be using the original code posted on the website.
+
+1. Add a running score to your game. Marked[A1, A2, etc]
+We want to add a score to our game. I am taking this to mean that we want to 
+keep tack of every time the player manages to clear a row. So we are going to
+develop a functionality that add one to the games score everytime the user
+clears a row.
+Start in SetOfBlocks,we create a int variable score. [A1]
+We then head to the eliminateFullRows method which is what clears rows when our
+user lines up the tetrominos corectly.
+Within the eliminateFullRows we add a function that adds 1 to score
+every time the method clears the rows[A2]
+this should allow for the score to be kept throughout the game.
+lastly we print score everytime it is updated[A3]
+
+BONUS: we also print the score when the game ends[A4]
+
+
+2.Design and add a new piece to your game Marked[B1, B2, etc]
+We are going to work within Tetromino.java, we must creat a new method
+MakeBiggerBlocks so that we can create Tetrominos that have 5 blocks [B1]
+
+After doing this we can design our new Tetromino, i created a n. I add this
+with the rest of the tetrominos [B2].
+
+With our tetromino created now we must add it to the game, we do this by modifying
+the pickRandom method. I changed the Math.random function so that it can included another value
+making it possible for the game to selected it [B3]
+
+Then we must add this new possibility to the if statement with the rest of the tetrominos[B4]
+
+lastly we head over to Tetris.java and change our new Tetromino to be the first one
+to show up so that we can test that it works with in the game correctly and actully shows up [B5]
+
+
+
+3.Add a pause and resume key to your game. Marked[C1, C2, etc.]
+first we must create a boolean variable called pause within our tetris class, 
+we default it as false[C1]
+
+next we go to our update method and modify it so that if 
+pause == true the game will not update[C2]
+
+next we must also modify our keyevent in a similar manner, if pause == true, 
+none of our keyevents will react.[C3]
+
+lastly we must create a toggle for our pause variable, we add it within our keyevent
+we use the char p to be the toggle, it switches the state of our pause variable
+depending upon its current state.[C4]
+
+this completes the functionality but we could do something extra to make it more
+obvious to the user when the game is paused. To fix this we add an extra if statement
+to our draw method that will print the String "Pause" when pause == true [C5]
+
+BONUS: Marked [D1, D2, etc]
+I also added a game over functionality. It prints game over and stops the game when the overflow() method from 
+blocks is true.
+
+first we modify the hasEnded method, we add an if statement so that hasEnded will
+return true if the overflow method is true, other wise it returns false like always
+this will acutlly end the game[D1]
+
+this might be confusing to the user so we also will add something that will allow
+the user to know the game has ended. for this we turn to the draw method.
+we add an if statment that will print the String game over 
+if overflow == true [D2]
+
+
